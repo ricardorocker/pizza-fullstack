@@ -29,4 +29,12 @@ server.get("/produtos", (req, res) => {
   return res.json(produtos);
 });
 
+server.get("/produtos/:id", (req, res) => {
+  const { id } = req.params;
+
+  let produto = produtos.find((produto) => produto.id == id);
+
+  return res.json(produto);
+});
+
 server.listen(3000);
